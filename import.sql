@@ -4,7 +4,8 @@ USE testdb;
 -- Tabel person
 CREATE TABLE person (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nama VARCHAR(100) NOT NULL
+    nama VARCHAR(100) NOT NULL,
+    alamat VARCHAR(100)
 );
 
 -- Tabel hobi
@@ -16,18 +17,17 @@ CREATE TABLE hobi (
 );
 
 -- Contoh data
-INSERT INTO person (nama) VALUES
-('Andi'),
-('Budi'),
-('Citra'),
-('Dina'),
-('Eka');
+INSERT INTO person (nama,alamat) VALUES
+('sentot','bandung'),
+('ali','jakarta'),
+('mahmud','bali'),
+('shena','USA');
 
 INSERT INTO hobi (person_id, nama_hobi) VALUES
-(1, 'Sepak Bola'),
-(2, 'Sepak Bola'),
-(3, 'Membaca'),
-(3, 'Sepak Bola'),
-(4, 'Berenang'),
-(5, 'Membaca'),
-(5, 'Sepak Bola');
+(1, 'membaca'),
+(1, 'menulis'),
+(2, 'renang'),
+(3, 'futsal'),
+(3, 'renang'),
+(3, 'membaca'),
+(4, 'renang');
