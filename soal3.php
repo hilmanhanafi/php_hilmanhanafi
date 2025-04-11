@@ -4,7 +4,7 @@ include 'config/database.php';
 
 $search = $_GET['search'] ?? '';
 
-$sql = "SELECT nama_hobi, COUNT(person_id) as total_person FROM hobi WHERE nama_hobi LIKE ? GROUP BY nama_hobi";
+$sql = "SELECT nama_hobi AS hobi, COUNT(person_id) as total_person FROM hobi WHERE nama_hobi LIKE ? GROUP BY nama_hobi ORDER BY total_person DESC";
 $stmt = $conn->prepare($sql);
 $searchParam = "%$search%";
 $stmt->bind_param("s", $searchParam);
@@ -41,14 +41,14 @@ $result = $stmt->get_result();
     <table border="1">
         <thead>
             <tr>
-                <th>Nama Hobi</th>
+                <th>Hobi</th>
                 <th>Jumlah Orang</th>
             </tr>
         </thead>
         <tbody>
             <?php while ($row = $result->fetch_assoc()): ?>
                 <tr>
-                    <td><?= htmlspecialchars($row['nama_hobi']) ?></td>
+                    <td><?= htmlspecialchars($row['hobi']) ?></td>
                     <td><?= htmlspecialchars($row['total_person']) ?></td>
                 </tr>
             <?php endwhile; ?>
