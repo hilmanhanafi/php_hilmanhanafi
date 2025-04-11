@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["kolom"] = $_POST["kolom"];
 
         // header to soal1b.php step 2
-        header("Location: soal1b.php?tahapan=2");
+        header("Location: soal1a.php?tahapan=2");
         exit;
     }
 
